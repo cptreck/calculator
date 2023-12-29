@@ -15,7 +15,7 @@
 
 .calc-box {
     display: flex;
-    width: 400px;
-    height: 600px;
+    width: 450px;
+    height: 525px;
     border: black 1px solid;
 }
