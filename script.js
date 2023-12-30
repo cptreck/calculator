@@ -25,6 +25,7 @@ function divide(num1, num2) {
 let num1;
 let num2;
 let operator;
+let buttonPress;
 
 function operate(num1, operator, num2) {
     if (operator === "+") {
@@ -43,3 +44,13 @@ function operate(num1, operator, num2) {
         return divide(num1, num2);
     }
 }
+
+const display = document.querySelector('.calc-display');
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        
+        display.textContent = display.textContent + button.textContent;
+        console.log(button.textContent);
+    })
+})
