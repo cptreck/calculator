@@ -50,7 +50,9 @@ const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         
-        display.textContent = display.textContent + button.textContent;
+        display.textContent += button.value;
         console.log(button.textContent);
+
+        
     })
 })
