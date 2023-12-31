@@ -49,10 +49,26 @@ const display = document.querySelector('.calc-display');
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
+        buttonPress = button.value;
         
-        display.textContent += button.value;
-        console.log(button.textContent);
+        if ((buttonPress === "+" || button.textContent === "-" || buttonPress === "*" || buttonPress === "/") && num1 === undefined) {
+            num1 = display.textContent;
+            operator = buttonPress;
+            display.textContent = "";
+            buttonPress = "";
+            console.log("im in the first if");
+        }
+        
+        if ((buttonPress === "+" || button.textContent === "-" || buttonPress === "*" || buttonPress === "/" || buttonPress === "=") && num2 === undefined) {
+            num2 = display.textContent;
+            display.textContent = operate(num1, operator, num2);
+            operator = buttonPress;
+            buttonPress = "";
+            num1 = display.textContent;
+            num2 = undefined;
+            console.log("Im in the second if statment");
+        }
 
-        
+        display.textContent += buttonPress;
     })
 })
