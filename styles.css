@@ -24,18 +24,35 @@ body {
     height: auto;
     border: #393d41 4px solid;
     font-family: 'Courier New', Courier, monospace;
+    border-radius: 8px;
+    padding: 8px;
     
 }
 
+.calc-top-display {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding:8px;
+    background-color: gainsboro;
+    border: black 1px solid;
+    border-bottom: 0px;
+    font-size: 20px;
+    height: 20px;
+}
+
 .calc-display {
- display: flex;
- height: 115px;
- border: black 1px solid;
- font-size: 64px;
- font-weight: 700;
- justify-content: right;
- align-items: flex-end;
- background-color: gainsboro;
+    display: flex;
+    border: black 1px solid;
+    font-size: 50px;
+    font-weight: 700;
+    justify-content: right;
+    align-items: flex-end;
+    background-color: gainsboro;
+    height: 60px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding:8px;
+    border-top: 0px;
 }
 
 .calc-buttons {
@@ -64,10 +81,4 @@ button:hover {
 .calc-buttons,
 .calc-box {
     background-color: slategray;
-}
-
-.calc-box,
-.calc-display {
-    border-radius: 8px;
-    padding: 8px;
 }
