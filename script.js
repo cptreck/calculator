@@ -50,11 +50,11 @@ const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         buttonPress = button.value;
-        
+        // possibly change the num1 & num2 variable from taking from the display and get the values from another variable. Gather variable while 
         if ((buttonPress === "+" || button.textContent === "-" || buttonPress === "*" || buttonPress === "/") && num1 === undefined) {
             num1 = display.textContent;
             operator = buttonPress;
-            display.textContent = "";
+            display.textContent = ""; //this might need to change 
             buttonPress = "";
             console.log("im in the first if");
         }
@@ -64,7 +64,7 @@ buttons.forEach((button) => {
             display.textContent = operate(num1, operator, num2);
             operator = buttonPress;
             buttonPress = "";
-            num1 = display.textContent;
+           // num1 = display.textContent;
             num2 = undefined;
             console.log("Im in the second if statment");
         }
