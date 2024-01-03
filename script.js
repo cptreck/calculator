@@ -52,9 +52,10 @@ const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         buttonPress = button.value;
-        topDisplay.textContent += display.textContent;
+        
         // possibly change the num1 & num2 variable from taking from the display and get the values from another variable. Gather variable while 
-        if ((buttonPress === "+" || button.textContent === "-" || buttonPress === "*" || buttonPress === "/") && num1 === undefined) {
+        if ((buttonPress === "+" || buttonPress === "-" || buttonPress === "*" || buttonPress === "/") && num1 === undefined) {
+            topDisplay.textContent = display.textContent + buttonPress;
             num1 = display.textContent;
             operator = buttonPress;
             display.textContent = ""; //this might need to change 
@@ -62,14 +63,24 @@ buttons.forEach((button) => {
             console.log("im in the first if");
         }
         
-        if ((buttonPress === "+" || button.textContent === "-" || buttonPress === "*" || buttonPress === "/" || buttonPress === "=") && num2 === undefined) {
+        if ((buttonPress === "+" || buttonPress === "-" || buttonPress === "*" || buttonPress === "/") && num2 === undefined) {
             num2 = display.textContent;
-            display.textContent = operate(num1, operator, num2);
+            topDisplay.textContent = operate(num1, operator, num2) + buttonPress;
+            display.textContent = "";
             operator = buttonPress;
             buttonPress = "";
-           // num1 = display.textContent;
+            num1 = operate(num1, operator, num2);      
             num2 = undefined;
             console.log("Im in the second if statment");
+        }
+
+        if (buttonPress === "=") {
+            num2 = display.textContent;
+            display.textContent = operate(num1, operator, num2);
+            num1 = undefined;
+            num2 = undefined;
+            operator = undefined;
+            buttonPress = "";
         }
 
         if (button.value === "reset"){
