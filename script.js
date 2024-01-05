@@ -48,17 +48,16 @@ function operate(num1, operator, num2) {
 const topDisplay = document.querySelector(".calc-top-display");
 const display = document.querySelector('.calc-display');
 const buttons = document.querySelectorAll('button');
-
+const point = document.querySelector(".btnPoint");
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         buttonPress = button.value;
         
-        // possibly change the num1 & num2 variable from taking from the display and get the values from another variable. Gather variable while 
         if ((buttonPress === "+" || buttonPress === "-" || buttonPress === "*" || buttonPress === "/") && num1 === undefined) {
             topDisplay.textContent = display.textContent + buttonPress;
             num1 = display.textContent;
             operator = buttonPress;
-            display.textContent = ""; //this might need to change 
+            display.textContent = ""; 
             buttonPress = "";
             console.log("im in the first if");
         }
@@ -91,7 +90,21 @@ buttons.forEach((button) => {
             operator = undefined;
             buttonPress = "";
         }
+
+        if (display.textContent.includes('.')) {
+            point.disabled = true;
+        } else {
+            point.disabled = false;
+        }
         
         display.textContent += buttonPress;
     })
+})
+
+point.addEventListener('click', () => {         
+    if (display.textContent.includes('.')) {
+        point.disabled = true;
+    } else {
+        point.disabled = false;
+    }
 })
