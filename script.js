@@ -65,7 +65,7 @@ buttons.forEach((button) => {
         if ((buttonPress === "+" || buttonPress === "-" || buttonPress === "*" || buttonPress === "/") && num2 === undefined) {
             num2 = display.textContent;
             console.log(num1);
-            topDisplay.textContent = operate(num1, operator, num2) + buttonPress;
+            topDisplay.textContent = roundNum(operate(num1, operator, num2)) + buttonPress;
             display.textContent = "";
             num1 = operate(num1, operator, num2);  
             operator = buttonPress;
@@ -76,7 +76,7 @@ buttons.forEach((button) => {
 
         if (buttonPress === "=") {
             num2 = display.textContent;
-            display.textContent = operate(num1, operator, num2);
+            display.textContent = roundNum(operate(num1, operator, num2));
             num1 = undefined;
             num2 = undefined;
             operator = undefined;
@@ -109,3 +109,7 @@ point.addEventListener('click', () => {
         point.disabled = false;
     }
 })
+
+function roundNum(num) {
+    return Math.round(num * 1000) / 1000;
+}
