@@ -64,11 +64,12 @@ buttons.forEach((button) => {
         
         if ((buttonPress === "+" || buttonPress === "-" || buttonPress === "*" || buttonPress === "/") && num2 === undefined) {
             num2 = display.textContent;
+            console.log(num1);
             topDisplay.textContent = operate(num1, operator, num2) + buttonPress;
             display.textContent = "";
+            num1 = operate(num1, operator, num2);  
             operator = buttonPress;
             buttonPress = "";
-            num1 = operate(num1, operator, num2);      
             num2 = undefined;
             console.log("Im in the second if statment");
         }
