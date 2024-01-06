@@ -97,7 +97,7 @@ buttons.forEach((button) => {
         } else {
             point.disabled = false;
         }
-        
+        topDisplay.textContent += buttonPress;
         display.textContent += buttonPress;
     })
 })
